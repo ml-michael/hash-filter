@@ -19,35 +19,16 @@ const count = ref(0);
   </p>
 
   <div class="event mb-5">
-    <input type="text" placeholder="e.g. cars-1" v-model="this.inputValue" />
+    <input type="text" placeholder="e.g. cars-1" v-model="inputValue" />
     <button @click="search" class="ml-3">查詢</button>
   </div>
 
   <hr />
-  <div
-    id="article"
-    class="pt-10"
-    v-for="(item, index) in this.articles"
-    :keys="item.index"
-  >
-    <div
-      class="article-section mx-auto my-5 max-w-3xl rounded-xl bg-slate-700 p-5"
-      v-for="(innerItem, index) in item"
-      :keys="innerItem.index"
-    >
-      <h2 class="text-3xl font-extrabold tracking-tight">
-        {{ index + 1 }}.
-        {{ innerItem.title }}
-      </h2>
-      <p>
-        <!-- {{ index + 1 }}. -->
-        {{ innerItem.content }}
-      </p>
-    </div>
-    <!-- <h2 class="text-3xl font-extrabold tracking-tight">
-          {{ currentArticle.title }}
-        </h2>
-        <p>{{ currentArticle.content }}</p> -->
+  <div id="article" class="mx-auto my-5 max-w-4xl rounded-xl bg-slate-700 p-10">
+    <h2 class="mb-3 text-4xl font-extrabold tracking-tight underline">
+      {{ currentArticle.title }}
+    </h2>
+    <p>{{ currentArticle.content }}</p>
   </div>
 </template>
 
@@ -56,6 +37,8 @@ export default {
   data() {
     return {
       inputValue: "",
+      inputType: "",
+      inputIndex: Number,
       currentArticle: {
         title: "文章標題",
         content: "文章內容",
@@ -97,56 +80,38 @@ export default {
   },
   methods: {
     search() {
-      //   輸入框中填入
-      // cars-1, cars-2, gourmet-1, gourmet-2, amazingselect-1
-      // 按下查詢後
-
-      //
+      // get inputValue
       let inputValue = this.inputValue;
-      // console.log(inputValue);
+
+      // inputValue-filter
       let inputSpilt = inputValue.split("-");
+
+      // data-type
       let inputType = inputSpilt[0];
+
+      // data-index
       let inputIndex = inputSpilt[1];
+      inputIndex = Number(inputIndex);
 
-      // string to number
-      let numberIndex = parseInt(inputIndex);
-      console.log("inputType", inputType, typeof inputType);
-      console.log("numberIndex", numberIndex, typeof numberIndex);
-
+      // combineText
       let combineValue = `${inputType}-${inputIndex}`;
-      console.log("combineValue: ", combineValue);
 
-      console.log(`${this.articles}`);
+      // matchText
 
-      // 找出物件內的個別資料
-      // for (const key in this.articles.cars[0]) {
-      //   if (Object.hasOwnProperty.call(this.articles.cars[0], key)) {
-      //     const element = this.articles.cars[key];
-      //     // console.log(`${key} - ${element}`);
-      //     console.log(`inputType: ${inputType}`);
-      //     console.log(`key: ${key}`);
-      // console.log(`element: ${element.title}`);
+      try {
+        this.currentArticle.title = this.articles[inputType][inputIndex].title;
+        this.currentArticle.content =
+          this.articles[inputType][inputIndex].content;
+      } catch (error) {
+        console.log(error);
+        this.inputValue = "";
+        this.currentArticle.title = "查無此資訊";
+        this.currentArticle.content = "";
+      }
 
-      //     // element.forEach((element, index) => {
-      //     //   console.warn("element:", element, "index:", index + 1);
-      //     //   console.log("title:", element.title);
-      //     //   console.log("content:", element.content);
-      //     // });
-      //     // this.currentArticle.title = element.title;
-      //     // console.log("123", this.currentArticle.title);
-      //     // this.currentArticle.content = element.content;
-      //     // console.log("345", this.currentArticle.content);
-      //     // });
-      // }
-      // }
-
-      // console.log(this.articles);
-
-      // console.log(this.articles.cars[0]);
+      // console.log(this.currentArticle.title);
+      // console.log(this.currentArticle.content);
     },
-  },
-  mounted() {
-    // console.log(this.articles.cars);
   },
 };
 </script>

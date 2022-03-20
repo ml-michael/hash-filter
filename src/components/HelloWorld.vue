@@ -99,9 +99,10 @@ export default {
       // matchText
 
       try {
-        this.currentArticle.title = this.articles[inputType][inputIndex].title;
+        this.currentArticle.title =
+          this.articles[inputType][inputIndex - 1].title;
         this.currentArticle.content =
-          this.articles[inputType][inputIndex].content;
+          this.articles[inputType][inputIndex - 1].content;
       } catch (error) {
         console.log(error);
         this.inputValue = "";

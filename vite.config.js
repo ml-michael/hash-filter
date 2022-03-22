@@ -13,6 +13,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      "/images": "src/assets/images",
     },
   },
   base: process.env.NODE_ENV === "production" ? "/<REPO>/" : "./",

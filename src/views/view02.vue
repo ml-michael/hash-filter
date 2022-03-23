@@ -23,7 +23,7 @@
         <div
           :class="['flex flex-col', 'justify-center', 'items-center', 'gap-5']"
         >
-          <Btn @click="search()">
+          <Btn text="搜尋" color="pink" @click="search()">
             <template v-slot:iconLeft>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -159,6 +159,7 @@ export default {
       // console.log(this.currentArticle.content);
     },
   },
+
   mounted() {
     console.log("category", this.data[0].category);
     console.log("article", this.data[0].articles);
@@ -173,6 +174,7 @@ export default {
       });
     });
   },
+
   components: { Btn },
 };
 </script>

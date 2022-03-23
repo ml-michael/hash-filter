@@ -34,10 +34,13 @@
     </div>
   </div>
 </template>
-<script>
+<script scoped>
 export default {
   data() {
     return {
+      inputValue: "",
+      inputType: "",
+      inputIndex: Number,
       currentArticle: {
         title: "文章標題",
         content: "文章內容",
@@ -96,21 +99,32 @@ export default {
 
       // data-type
       let inputType = inputSpilt[0];
+      // console.log("inputType", inputType);
 
       // data-index
       let inputIndex = inputSpilt[1];
       inputIndex = Number(inputIndex);
+      // console.log(inputIndex);
 
       // combineText
-      let combineValue = `${inputType}-${inputIndex}`;
+      // let combineValue = `${inputType}-${inputIndex}`;
+      // console.log(combineValue);
 
       // matchText
+      const matchList = {
+        cars: 1,
+        gourmet: 2,
+        amazingselect: 3,
+      };
 
+      let matchValue = matchList[inputType];
+      // console.log(this.data[matchValue - 1]);
+      // console.log(this.data[matchValue - 1].articles[inputIndex].title);
       try {
         this.currentArticle.title =
-          this.articles[inputType][inputIndex - 1].title;
+          this.data[matchValue - 1].articles[inputIndex - 1].title;
         this.currentArticle.content =
-          this.articles[inputType][inputIndex - 1].content;
+          this.data[matchValue - 1].articles[inputIndex - 1].content;
       } catch (error) {
         console.log(error);
         this.inputValue = "";
@@ -121,6 +135,21 @@ export default {
       // console.log(this.currentArticle.title);
       // console.log(this.currentArticle.content);
     },
+  },
+
+  mounted() {
+    console.log("category", this.data[0].category);
+    console.log("article", this.data[0].articles);
+    console.log("article[0]", this.data[0].articles[0]);
+    console.log("article[0].title", this.data[0].articles[0].title);
+    console.log("article[0].content", this.data[0].articles[0].content);
+    console.log(this.data);
+    this.data.forEach((element, index) => {
+      console.warn(index, element);
+      element.articles.forEach((innerElement, innerIndex) => {
+        console.log(innerIndex, innerElement);
+      });
+    });
   },
 };
 </script>

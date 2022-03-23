@@ -18,17 +18,29 @@
 //   },
 //   base: process.env.NODE_ENV === "production" ? "/<REPO>/" : "./",
 // });
-
+//-
 import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
-import path, { resolve } from "path";
+import path from "path";
+// Icon
+// import Components from "unplugin-vue-components/vite";
+// import Icons from "unplugin-icons/vite"; //一樣先引入套件
+// import IconsResolver from "unplugin-icons/resolver";
 
 export default ({ mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
   // import.meta.env.VITE_NAME available here with: process.env.VITE_NAME
 
   return defineConfig({
-    plugins: [vue()],
+    plugins: [
+      vue(),
+      // Components({
+      //   resolvers: IconsResolver({
+      //     prefix: "icon", // 可以為 icon component加上前贅字來區分元件
+      //   }),
+      // }),
+      // Icons(), //一樣定義引入的套件
+    ],
     // rollupOptions: {
     //   input: {
     //     example: path.resolve(process.cwd(), "index.html"), // 把页面放在外面，路径简短 防止src/packages/web/index.html ，建议vite把key(web、lib)可也阔以映射成页面路径，就避免这个问题
@@ -38,12 +50,17 @@ export default ({ mode }) => {
     resolve: {
       alias: [
         {
-          // find: "@",
-          // replacement: path.resolve(__dirname, "src"),
-          "@": path.resolve(__dirname, "src"),
-          views: path.resolve(__dirname, "src/views"),
-          utils: path.resolve(__dirname, "src/utils"),
+          find: "@",
+          replacement: path.resolve(__dirname, "src"),
         },
+        {
+          find: "views",
+          replacement: path.resolve(__dirname, "src/views"),
+        },
+        // {
+        //   find: "views",
+        //   replacement: path.resolve(__dirname, "src/views"),
+        // },
       ],
     },
     server: {

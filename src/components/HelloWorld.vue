@@ -1,13 +1,3 @@
-<script setup>
-import { ref } from "vue";
-
-defineProps({
-  msg: String,
-});
-
-const count = ref(0);
-</script>
-
 <template>
   <div class="container mx-auto py-44">
     <h1 class="text-4xl font-bold text-pink-400">JSON 資料處理</h1>

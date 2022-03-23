@@ -9,26 +9,31 @@ const count = ref(0);
 </script>
 
 <template>
-  <h1 class="text-4xl font-bold">JSON 資料處理</h1>
+  <div class="container mx-auto py-44">
+    <h1 class="text-4xl font-bold text-pink-400">JSON 資料處理</h1>
 
-  <p class="desc my-5">
-    輸入框中填入 cars-1, cars-2, gourmet-1, gourmet-2, amazingselect-1
-    按下查詢後
-    <br />
-    要於下方顯示對應文章標題及內容
-  </p>
+    <p class="desc my-5 text-white">
+      輸入框中填入 cars-1, cars-2, gourmet-1, gourmet-2, amazingselect-1
+      按下查詢後
+      <br />
+      要於下方顯示對應文章標題及內容
+    </p>
 
-  <div class="event mb-5">
-    <input type="text" placeholder="e.g. cars-1" v-model="inputValue" />
-    <button @click="search" class="ml-3">查詢</button>
-  </div>
+    <div class="event mb-5">
+      <input type="text" placeholder="e.g. cars-1" v-model="inputValue" />
+      <button @click="search" class="ml-3 bg-pink-400">查詢</button>
+    </div>
 
-  <hr />
-  <div id="article" class="mx-auto my-5 max-w-4xl rounded-xl bg-slate-700 p-10">
-    <h2 class="mb-3 text-4xl font-extrabold tracking-tight underline">
-      {{ currentArticle.title }}
-    </h2>
-    <p>{{ currentArticle.content }}</p>
+    <hr />
+    <div
+      id="article"
+      class="mx-auto my-5 max-w-4xl rounded-xl bg-slate-700 p-10 text-pink-400"
+    >
+      <h2 class="mb-3 text-4xl font-extrabold tracking-tight underline">
+        {{ currentArticle.title }}
+      </h2>
+      <p class="text-white">{{ currentArticle.content }}</p>
+    </div>
   </div>
 </template>
 

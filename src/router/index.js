@@ -4,12 +4,17 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home,
+    // component: Home,
   },
   {
     path: "/about",
-    name: "frontDesk",
-    component: () => import("@/views/view01.vue"),
+    name: "about",
+    component: () => import("../views/view01.vue"),
+  },
+  {
+    path: "/main",
+    name: "main",
+    component: Home,
   },
 ];
 const router = createRouter({

@@ -40,9 +40,9 @@ export default ({ mode }) => {
         {
           // find: "@",
           // replacement: path.resolve(__dirname, "src"),
-          "@": resolve(__dirname, "src"),
-          views: resolve(__dirname, "src/views"),
-          utils: resolve(__dirname, "src/utils"),
+          "@": path.resolve(__dirname, "src"),
+          views: path.resolve(__dirname, "src/views"),
+          utils: path.resolve(__dirname, "src/utils"),
         },
       ],
     },

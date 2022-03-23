@@ -29,8 +29,11 @@ export default ({ mode }) => {
 
   return defineConfig({
     plugins: [vue()],
-    // server: {
-    //   port: 8080
+    // rollupOptions: {
+    //   input: {
+    //     example: path.resolve(process.cwd(), "index.html"), // 把页面放在外面，路径简短 防止src/packages/web/index.html ，建议vite把key(web、lib)可也阔以映射成页面路径，就避免这个问题
+    //     lib: path.resolve(process.cwd(), "lib.html"),
+    //   },
     // },
     resolve: {
       alias: [
@@ -56,9 +59,12 @@ export default ({ mode }) => {
       },
     },
     build: {
+      // 大小警告
       chunkSizeWarningLimit: 600,
+      // 關閉 CSS 程式碼拆分
       cssCodeSplit: false,
-      sourcemap: process.env.MODE === "production",
+      //構建後生成的 source map 檔案，會等於生產環境的命名
+      sourcemap: process.env.NODE === "production",
     },
   });
 };

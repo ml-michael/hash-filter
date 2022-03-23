@@ -25,6 +25,7 @@ const count = ref(0);
     </div>
 
     <hr />
+
     <div
       id="article"
       class="mx-auto my-5 max-w-4xl rounded-xl bg-slate-700 p-10 text-pink-400"

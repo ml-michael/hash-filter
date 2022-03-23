@@ -12,6 +12,11 @@
         Minima voluptatibus quam sunt unde fuga qui nobis possimus nemo. At
         facere expedita dolore saepe ad.
       </p>
+      <img
+        class="mx-auto my-8"
+        alt="powered-by"
+        src="@/assets/images/powered-by-vitawind-bright.png"
+      />
     </div>
   </div>
 </template>

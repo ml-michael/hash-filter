@@ -10,9 +10,38 @@
         要於下方顯示對應文章標題及內容
       </p>
 
-      <div class="event mb-5">
-        <input type="text" placeholder="e.g. cars-1" v-model="inputValue" />
-        <button @click="search" class="ml-3 bg-pink-400">查詢</button>
+      <div :class="['flex', 'items-center justify-center', 'mb-5']">
+        <div :class="['mr-2']">
+          <input
+            type="text"
+            placeholder="e.g. cars-1"
+            v-model="inputValue"
+            @keyup.enter="search()"
+          />
+        </div>
+
+        <div
+          :class="['flex flex-col', 'justify-center', 'items-center', 'gap-5']"
+        >
+          <Btn @click="search()">
+            <template v-slot:iconLeft>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </template>
+          </Btn>
+        </div>
       </div>
 
       <hr />
@@ -35,6 +64,7 @@
   </div>
 </template>
 <script scoped>
+import Btn from "../components/btn.vue";
 export default {
   data() {
     return {
@@ -93,30 +123,24 @@ export default {
     search() {
       // get inputValue
       let inputValue = this.inputValue;
-
       // inputValue-filter
       let inputSpilt = inputValue.split("-");
-
       // data-type
       let inputType = inputSpilt[0];
       // console.log("inputType", inputType);
-
       // data-index
       let inputIndex = inputSpilt[1];
       inputIndex = Number(inputIndex);
       // console.log(inputIndex);
-
       // combineText
       // let combineValue = `${inputType}-${inputIndex}`;
       // console.log(combineValue);
-
       // matchText
       const matchList = {
         cars: 1,
         gourmet: 2,
         amazingselect: 3,
       };
-
       let matchValue = matchList[inputType];
       // console.log(this.data[matchValue - 1]);
       // console.log(this.data[matchValue - 1].articles[inputIndex].title);
@@ -131,12 +155,10 @@ export default {
         this.currentArticle.title = "查無此資訊";
         this.currentArticle.content = "";
       }
-
       // console.log(this.currentArticle.title);
       // console.log(this.currentArticle.content);
     },
   },
-
   mounted() {
     console.log("category", this.data[0].category);
     console.log("article", this.data[0].articles);
@@ -151,5 +173,6 @@ export default {
       });
     });
   },
+  components: { Btn },
 };
 </script>

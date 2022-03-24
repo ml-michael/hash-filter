@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import Home from "@/components/HelloWorld.vue";
 import json02 from "views/json02.vue";
 import componentDemo from "views/component-demo.vue";
+import ani_btn from "animation/ani_btn.vue";
 const routes = [
   {
     path: "/",
@@ -22,6 +23,11 @@ const routes = [
     path: "/demo",
     name: "demo",
     component: componentDemo,
+  },
+  {
+    path: "/ani_btn",
+    name: "ani_btn",
+    component: ani_btn,
   },
 ];
 const router = createRouter({

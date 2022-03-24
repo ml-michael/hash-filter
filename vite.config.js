@@ -44,6 +44,7 @@ export default ({ mode }) => {
         views: path.resolve(__dirname, "src/views"),
         layouts: path.resolve(__dirname, "src/layouts"),
         utils: path.resolve(__dirname, "src/utils"),
+        animation: path.resolve(__dirname, "src/animation"),
       },
     },
     server: {

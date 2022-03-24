@@ -1,57 +1,75 @@
 <template>
   <SectionPaddingTop />
-  <div
-    :class="[
-      'max-w-3xl',
-      'flex flex-col',
-      'items-end justify-start',
-      'mx-auto py-5',
-      'absolute right-0 top-0',
-    ]"
-  >
-    <AccordionMenuItem
-      v-for="item in list.items"
-      :key="list.groupName.concat('-', item.name)"
-      :itemName="item.name"
+  <div :class="['max-w-3xl', 'flex flex-col', 'mx-auto py-5', 'mx-auto']">
+    <div
+      class="accordionMenuItem"
+      :class="['mx-auto', 'flex flex-col', 'items-center justify-center']"
     >
-      <template v-slot:itemText>
-        {{ item.content }}
-      </template>
-    </AccordionMenuItem>
+      <h2 :class="['text-4xl font-bold text-pink-500', 'mb-4']">
+        AccordionMenuItem
+      </h2>
+      <AccordionMenuItem
+        v-for="item in list.items"
+        :key="list.groupName.concat('-', item.name)"
+        :itemName="item.name"
+      >
+        <template v-slot:itemText>
+          {{ item.content }}
+        </template>
+      </AccordionMenuItem>
 
-    <br /><br />
-    <AccordionMenuItem
-      v-for="link in faq.links"
-      :key="faq.groupName.concat('-', link.name)"
-      :itemName="link.name"
+      <br /><br />
+      <AccordionMenuItem
+        v-for="link in faq.links"
+        :key="faq.groupName.concat('-', link.name)"
+        :itemName="link.name"
+      >
+        <template v-slot:itemContent>
+          <div
+            :class="[
+              'p-3',
+              'text-white',
+              'border-t border-pink-500 first:border-0',
+              'transition-all hover:bg-pink-300',
+            ]"
+            v-for="content in link.contents"
+            :key="content"
+          >
+            {{ content }}
+          </div>
+        </template>
+      </AccordionMenuItem>
+    </div>
+    <hr :class="['my-10']" />
+    <div
+      class="date-container"
+      :class="[
+        'w-72',
+        'text-white',
+        'mx-auto',
+        'flex flex-col',
+        'items-center justify-center',
+      ]"
     >
-      <template v-slot:itemContent>
-        <div
-          :class="[
-            'p-3',
-            'text-white',
-            'border-t border-pink-500 first:border-0',
-            'transition-all hover:bg-pink-300',
-          ]"
-          v-for="content in link.contents"
-          :key="content"
-        >
-          {{ content }}
-        </div>
-      </template>
-    </AccordionMenuItem>
-  </div>
-  <div
-    class="date-container"
-    :class="[
-      'w-72',
-      'text-white',
-      'mx-auto',
-      'flex',
-      'items-center justify-center',
-    ]"
-  >
-    <SimpleCalendar />
+      <h2 :class="['text-4xl font-bold text-pink-500', 'mb-4']">
+        SimpleCalendar
+      </h2>
+      <SimpleCalendar />
+    </div>
+    <hr :class="['my-10']" />
+    <div
+      class="modal"
+      :class="[
+        'w-72',
+        'text-white',
+        'mx-auto',
+        'flex flex-col',
+        'items-center justify-center',
+      ]"
+    >
+      <h2 :class="['text-4xl font-bold text-pink-500', 'mb-4']">Modal</h2>
+      <Modal />
+    </div>
   </div>
 
   <SectionPaddingBottom />
@@ -62,6 +80,7 @@ import SectionPaddingTop from "../components/SectionPaddingTop.vue";
 import SectionPaddingBottom from "../components/SectionPaddingBottom.vue";
 import AccordionMenuItem from "../components/AccordionMenuItem.vue";
 import SimpleCalendar from "../components/SimpleCalendar.vue";
+import Modal from "../components/Modal.vue";
 export default {
   name: "component-demo",
   components: {
@@ -69,6 +88,7 @@ export default {
     SectionPaddingBottom,
     AccordionMenuItem,
     SimpleCalendar,
+    Modal,
   },
   data() {
     return {

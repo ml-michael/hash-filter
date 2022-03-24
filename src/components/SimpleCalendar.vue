@@ -70,7 +70,7 @@
           month - 1 === today.getMonth() &&
           day === today.getDate()
             ? 'bg-pink-600 font-bold text-white'
-            : 'hover:bg-gray-200',
+            : 'hover:bg-pink-400',
         ]"
         v-for="(day, index) in thisMonth"
         :key="day"

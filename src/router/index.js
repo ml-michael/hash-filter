@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import Home from "@/components/HelloWorld.vue";
 import json02 from "views/view02.vue";
+import componentDemo from "views/component-demo.vue";
 const routes = [
   {
     path: "/",
@@ -16,6 +17,11 @@ const routes = [
     path: "/json02",
     name: "json02",
     component: json02,
+  },
+  {
+    path: "/demo",
+    name: "demo",
+    component: componentDemo,
   },
 ];
 const router = createRouter({

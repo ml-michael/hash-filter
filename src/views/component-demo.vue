@@ -59,16 +59,34 @@
     <hr :class="['my-10']" />
     <div
       class="modal"
-      :class="[
-        'w-72',
-        'text-white',
-        'mx-auto',
-        'flex flex-col',
-        'items-center justify-center',
-      ]"
+      :class="['p-5', 'flex flex-col', 'items-center justify-center']"
     >
       <h2 :class="['text-4xl font-bold text-pink-500', 'mb-4']">Modal</h2>
-      <Modal />
+      <Btn
+        class="flex w-40 items-center justify-center text-sm"
+        btnText="開啟 Modal"
+        color="pink"
+        @click="showed = false"
+      >
+        <template v-slot:iconRight>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+            <path
+              fill-rule="evenodd"
+              d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </template>
+      </Btn>
+      <Modal title="注意" :showModal="showed" @closing="showed = true">
+        <template v-slot:itemText>常用的警告提示</template>
+      </Modal>
     </div>
   </div>
 
@@ -81,6 +99,7 @@ import SectionPaddingBottom from "../components/SectionPaddingBottom.vue";
 import AccordionMenuItem from "../components/AccordionMenuItem.vue";
 import SimpleCalendar from "../components/SimpleCalendar.vue";
 import Modal from "../components/Modal.vue";
+import Btn from "../components/btn.vue";
 export default {
   name: "component-demo",
   components: {
@@ -89,9 +108,11 @@ export default {
     AccordionMenuItem,
     SimpleCalendar,
     Modal,
+    Btn,
   },
   data() {
     return {
+      showed: true,
       list: {
         groupName: "Abouts",
         items: [

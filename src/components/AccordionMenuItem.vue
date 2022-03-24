@@ -3,18 +3,23 @@
     <label
       :class="[
         'px-4 py-2',
-        'border border-gray-300',
+        'border border-pink-500',
         'hover:bg-pink-300',
         'flex items-center justify-between',
         'cursor-pointer',
         'transition-all',
+        'text-white',
+        checked && 'bg-pink-500',
       ]"
     >
-      <div>選項</div>
+      <input type="checkbox" class="sr-only" v-model="checked" />
+      <div :class="[checked && 'text-white', 'transition-all']">
+        {{ itemName }}
+      </div>
       <div
         :class="[
           'h-9 w-9',
-          'hover:bg-gray-200',
+          'hover:bg-pink-300',
           'rounded-full',
           'flex items-center justify-center',
           'transition-all',
@@ -25,7 +30,7 @@
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          :class="['h-6 w-6', 'transition-all']"
+          :class="['h-6 w-6', checked && '-rotate-180', 'transition-all']"
         >
           <path
             stroke-linecap="round"
@@ -38,11 +43,16 @@
     </label>
     <div
       :class="[
-        'border border-t-0 border-gray-300',
+        checked ? 'max-h-[300px]' : 'max-h-0',
+        'border border-t-0 border-pink-500',
         'overflow-hidden transition-all',
       ]"
     >
-      <div class="p-4 text-gray-600">內容</div>
+      <slot name="itemContent">
+        <div :class="['selection:bg-pink-500', 'p-4 text-white']">
+          <slot name="itemText"> 內容 </slot>
+        </div>
+      </slot>
     </div>
   </div>
 </template>
@@ -50,10 +60,15 @@
 <script>
 export default {
   name: "AccordionMenuItem",
+  props: {
+    itemName: {
+      default: "選項",
+    },
+  },
   data() {
-    return {};
+    return {
+      checked: false,
+    };
   },
 };
 </script>
-
-<style lang="scss"></style>

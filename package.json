@@ -17,6 +17,7 @@
     "gh-pages": "^3.2.3",
     "prettier": "^2.5.1",
     "prettier-plugin-tailwindcss": "^0.1.5",
+    "tailwind-flagger": "^0.1.0",
     "unplugin-icons": "^0.14.0",
     "vitawind": "^2.0.0",
     "vite": "^2.7.2",

@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import Home from "@/components/HelloWorld.vue";
-import json02 from "views/view02.vue";
+import json02 from "views/json02.vue";
 import componentDemo from "views/component-demo.vue";
 const routes = [
   {

@@ -41,6 +41,18 @@
       </template>
     </AccordionMenuItem>
   </div>
+  <div
+    class="date-container"
+    :class="[
+      'w-72',
+      'text-white',
+      'mx-auto',
+      'flex',
+      'items-center justify-center',
+    ]"
+  >
+    <SimpleCalendar />
+  </div>
 
   <SectionPaddingBottom />
 </template>
@@ -49,9 +61,15 @@
 import SectionPaddingTop from "../components/SectionPaddingTop.vue";
 import SectionPaddingBottom from "../components/SectionPaddingBottom.vue";
 import AccordionMenuItem from "../components/AccordionMenuItem.vue";
+import SimpleCalendar from "../components/SimpleCalendar.vue";
 export default {
   name: "component-demo",
-  components: { SectionPaddingTop, SectionPaddingBottom, AccordionMenuItem },
+  components: {
+    SectionPaddingTop,
+    SectionPaddingBottom,
+    AccordionMenuItem,
+    SimpleCalendar,
+  },
   data() {
     return {
       list: {

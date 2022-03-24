@@ -4,10 +4,7 @@
 
 <script>
 export default {
-  name: "AccordionMenuItem",
-  data() {
-    return {};
-  },
+  data() {},
 };
 </script>
 

@@ -37,6 +37,18 @@ export default ({ mode }) => {
     //   },
     // },
     resolve: {
+      extensions: [
+        ".ts",
+        ".tsx",
+        ".vue",
+        ".js",
+        ".jsx",
+        ".json",
+        ".css",
+        ".scss",
+        ".pug",
+      ],
+
       alias: {
         "@": path.resolve(__dirname, "src"),
         components: path.resolve(__dirname, "src/components"),

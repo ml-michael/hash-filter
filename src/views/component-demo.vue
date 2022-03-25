@@ -240,4 +240,10 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+// test import scss
+// h1,
+// h2 {
+// font-size: 24px;
+// }
+</style>

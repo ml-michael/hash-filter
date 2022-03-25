@@ -1,6 +1,7 @@
 <template>
   <SectionPaddingTop />
   <div :class="['max-w-3xl', 'flex flex-col', 'mx-auto py-5', 'mx-auto']">
+    <!-- AccordionMenuItem -->
     <div
       class="accordionMenuItem"
       :class="['mx-auto', 'flex flex-col', 'items-center justify-center']"
@@ -41,6 +42,7 @@
       </AccordionMenuItem>
     </div>
     <hr :class="['my-10']" />
+    <!-- SimpleCalendar -->
     <div
       class="date-container"
       :class="[
@@ -57,6 +59,7 @@
       <SimpleCalendar />
     </div>
     <hr :class="['my-10']" />
+    <!-- Modal -->
     <div
       class="modal"
       :class="['p-5', 'flex flex-col', 'items-center justify-center']"
@@ -89,6 +92,7 @@
       </Modal>
     </div>
     <hr :class="['my-10']" />
+    <!-- darkModeSwitcher -->
     <div class="darkModeSwitcher">
       <h2 :class="['text-4xl font-bold text-pink-500', 'mb-4']">
         DarkModeSwitcher
@@ -103,7 +107,7 @@
         <DarkModeSwitcher />
       </div>
     </div>
-
+    <!-- Hamburger Btn -->
     <div
       class="rounded-none bg-pink-400 text-white dark:bg-slate-700 sm:rounded-full"
     >
@@ -162,6 +166,19 @@
             </svg>
           </template>
         </Btn>
+      </div>
+    </div>
+    <hr :class="['my-10']" />
+    <!-- Hamburger Menu -->
+    <h2 :class="['text-4xl font-bold text-pink-500', 'mb-4']">
+      Hamburger Menu
+    </h2>
+    <div
+      class="tham-e-squeeze tham tham-w-8"
+      :class="{ 'tham-active': opened }"
+    >
+      <div class="tham-box">
+        <div class="tham-inner bg-white"></div>
       </div>
     </div>
   </div>

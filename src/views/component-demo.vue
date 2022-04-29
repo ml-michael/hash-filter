@@ -181,6 +181,13 @@
         <div class="tham-inner bg-white"></div>
       </div>
     </div>
+    <hr :class="['my-10']" />
+
+    <!-- Swiper -->
+    <h2 :class="['text-4xl font-bold text-pink-500', 'mb-4']">Swiper</h2>
+    <div>
+      <Swiper />
+    </div>
   </div>
 
   <SectionPaddingBottom />
@@ -194,6 +201,9 @@ import SimpleCalendar from "../components/SimpleCalendar.vue";
 import Modal from "../components/Modal.vue";
 import Btn from "../components/btn.vue";
 import DarkModeSwitcher from "../components/DarkModeSwitcher.vue";
+// Swiper
+import Swiper from "../components/Swiper.vue";
+
 export default {
   name: "component-demo",
   components: {
@@ -204,6 +214,8 @@ export default {
     Modal,
     Btn,
     DarkModeSwitcher,
+    //
+    Swiper,
   },
   data() {
     return {

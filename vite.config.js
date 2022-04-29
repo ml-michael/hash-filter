@@ -61,18 +61,19 @@ export default ({ mode }) => {
     },
     server: {
       port: 8080,
-      proxy: {
-        "/api": {
-          target: "http://192.168.1.4:8181/",
-          changeOrigin: true, //是否跨域
-          secure: false,
-        },
-        "/storages": {
-          target: "http://192.168.1.4:81/",
-          changeOrigin: true, //是否跨域
-          secure: false,
-        },
-      },
+      host: "0.0.0.0",
+      // proxy: {
+      //   "/api": {
+      //     target: "http://192.168.1.4:8181/",
+      //     changeOrigin: true, //是否跨域
+      //     secure: false,
+      //   },
+      //   "/storages": {
+      //     target: "http://192.168.1.4:81/",
+      //     changeOrigin: true, //是否跨域
+      //     secure: false,
+      //   },
+      // },
     },
     build: {
       // 容量大小警告

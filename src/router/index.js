@@ -4,6 +4,7 @@ import json02 from "views/json02.vue";
 import componentDemo from "views/component-demo.vue";
 import ani_btn from "animation/ani_btn.vue";
 import ig from "views/oEmbed";
+import selectMap from "views/selectMap";
 const routes = [
   {
     path: "/",
@@ -34,6 +35,11 @@ const routes = [
     path: "/ig",
     name: "oEmbed",
     component: ig,
+  },
+  {
+    path: "/selectMap",
+    name: "selectMap",
+    component: selectMap,
   },
 ];
 const router = createRouter({
